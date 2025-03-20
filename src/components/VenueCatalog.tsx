@@ -3,7 +3,7 @@ import Link from "next/link";
 import Card from "./Card";
 import getVenues from "@/libs/getVenues";
 
-export default async function VenueCatalog({venueJson} : {venueJson: VenueJson}) {
+export default async function VenueCatalog({venueJson} : {venueJson: DentistJson}) {
     // test case throws typeError when venueJson is used for some reason 
     // (presumably because of type problems in the test script)
     const venues = await venueJson;
@@ -19,7 +19,7 @@ export default async function VenueCatalog({venueJson} : {venueJson: VenueJson})
             {
                 venues.data.map((venue)=>(
                     <Link href={`/venue/${venue.id}`} className='w-1/5'>
-                        <Card venueName={venue.name} imgSrc={venue.picture}/>
+                        <Card venueName={venue.name} imgSrc={''}/>
                     </Link>  
                 ))
             }

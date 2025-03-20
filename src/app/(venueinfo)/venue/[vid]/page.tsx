@@ -9,7 +9,7 @@ export default async function VenueDetail({params} : {params: {vid: string}}) {
         <main>
             <div className="bg-white mx-10 my-10">
                 <div className="flex flex-row gap-5">
-                    <Image src={venues.data.picture}
+                    <Image src={''}
                     alt="Venue Picture"
                     width={0} height={0} sizes="100vw"
                     className="rounded-lg w-[30%] bg-black m-5"/>
@@ -17,11 +17,8 @@ export default async function VenueDetail({params} : {params: {vid: string}}) {
                         <div className="font-bold">{venues.data.name}</div>
                         <div className="text-base my-5">
                             <div>Name: {venues.data.name}</div>
-                            <div>Address: {venues.data.address}</div>
-                            <div>District: {venues.data.district}</div>
-                            <div>Postal code: {venues.data.postalcode}</div>
-                            <div>Tel: {venues.data.tel}</div>
-                            <div>Daily rate: {venues.data.dailyrate}</div>
+                            <div>Experience: {venues.data.experience}</div>
+                            <div>Expertise: {venues.data.expertise}</div>
                         </div> 
                     </div>
                 </div>
