@@ -22,8 +22,13 @@ export default function Booking() {
                 Booking List
             </h1>
 
+            <Suspense fallback={
+                <div className='w-2/5 mx-auto my-10 border-gray-500 border-2 shadow-lg px-10 py-5 grid justify-center'>
+                <CircularProgress size="50px"/>
+                </div>
+            }>
             <BookingPanel/>
-
+            </Suspense>
         </main>
     );
 }

@@ -1,41 +1,22 @@
-'use client'
+
 
 import getBookings from "@/libs/getBookings";
-import { useSession } from "next-auth/react";
 import Bookings from "./Bookings";
-import useSWR from "swr";
 import { CircularProgress } from "@mui/material";
-import { useEffect, useState } from "react";
+import { redirect } from "next/navigation";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]/authOptions";
 
-export default function BookingPanel() {
 
-    const {data:session} = useSession();
-    const [res, setResponse] = useState<{success: boolean, count: number, data: Booking[]}|null>();
+export default async function BookingPanel() {
+
+    const session = await getServerSession(authOptions)
     
     if (!session || !session.user.token) return (
-        <div className='w-4/5 mx-auto my-10 border-gray-500 border-2 shadow-lg px-10 py-5 grid'>
-            <div className="bg-gray-100 w-fit px-5 py-2 mx-5 my-2">
-            <div>Unauthorized</div>
-            </div>
-        </div>
+        redirect('/')
     )
 
-    // reverted to basic client-sided fetching due to weird error on data mutation
-    // const {data: res, isLoading, isValidating} = useSWR(session.user.token, getBookings)
-
-    useEffect(()=>{
-        const fetchData = async () => {
-            const data = await getBookings(session.user.token);
-            setResponse(data);
-        }
-        fetchData();
-    },[])
-
-    if (!res) return (
-        <div className='w-2/5 mx-auto my-10 border-gray-500 border-2 shadow-lg px-10 py-5 grid justify-center'>
-            <CircularProgress size="50px"/>
-        </div>
-    )
+    const res = await getBookings(session.user.token);
 
     if (res.count == 0) return (
         <div className='w-2/5 mx-auto my-10 border-gray-500 border-2 shadow-lg px-10 py-5 grid justify-center'>
