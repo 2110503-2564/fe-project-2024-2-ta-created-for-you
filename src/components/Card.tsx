@@ -1,6 +1,6 @@
-'use client'
 
-import { Button, Card, CardActions, CardContent } from "@mui/material";
+
+import { Card, CardActions, CardContent } from "@mui/material";
 import { BookButton, DeleteButton, UpdateButton } from "./DentistButton";
 
 export default function DentistCard( {dentist, user} : {dentist:Dentist, user?: UserJson | null} ) {
