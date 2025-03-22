@@ -13,7 +13,7 @@ export default async function userLogin(userEmail:string, userPassword:string) {
     if (!reponse.ok) {
         throw new Error("Failed to login user");
     }
-    const data : UserJson = await reponse.json();
+    const data : {success: boolean, token: string} = await reponse.json();
     return data;
     
 }

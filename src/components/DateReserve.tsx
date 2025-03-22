@@ -1,16 +1,17 @@
 "use client"
 
-import { DatePicker } from "@mui/x-date-pickers";
+import { DateField, DatePicker } from "@mui/x-date-pickers";
 import { LocalizationProvider } from "@mui/x-date-pickers"; 
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs"
-import { Select, MenuItem } from "@mui/material";
+import { useState } from "react";
+import { Dayjs } from "dayjs";
 
-export default function DateReserve() {
+export default function DateBooking() {
+    const [date, setDate] = useState<Dayjs|null>(null)
+
     return (
-        <div className="">
             <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <DatePicker className="w-full my-[20px] bg-white"/>
+                <DateField required name='bookingDate' value={date} className="w-full my-[20px] bg-white" onChange={()=>setDate(date)}/>
             </LocalizationProvider>
-        </div>
     );
 }

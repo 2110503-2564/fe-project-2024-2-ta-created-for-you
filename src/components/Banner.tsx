@@ -11,6 +11,7 @@ export default function Banner() {
     const [index, setIndex] = useState(0);
     const router = useRouter();
     const {data:session} = useSession();
+    console.log(session?.user);
 
     return (
         <div className={styles.banner} onClick={()=>setIndex(index+1)}>
@@ -28,11 +29,6 @@ export default function Banner() {
             onClick={(e)=>{e.stopPropagation(); router.push('/venue')}}>
                 Select Venue
             </button>
-            {
-                session? 
-                <div className='absolute top-2 right-3  px-2 py-1
-                bg-black/65 text-white rounded-md'>Welcome {session.user?.name}</div>:null
-            }
         </div>
     );
 }

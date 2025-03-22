@@ -3,6 +3,7 @@ interface Dentist {
     name: string,
     experience: number,
     expertise: string,
+    booking: Object[],
     __v: number,
     id: string
   }
@@ -19,10 +20,25 @@ interface Dentist {
     data: {
       _id: string,
       name: string,
-      email: string,
       tel: string,
+      email: string,
       role: string,
       createdAt: string,
       __v: number
     }
+  }
+
+  interface Booking {
+    _id: string,
+    bookingDate: string,
+    user: string,
+    dentist: {
+      _id: string,
+      name: string,
+      experience: number,
+      expertise: string,
+      id: string
+    },
+    createdAt: string,
+    __v: number
   }
