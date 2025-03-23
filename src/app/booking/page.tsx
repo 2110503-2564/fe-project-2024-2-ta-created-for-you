@@ -13,7 +13,7 @@ export default function Booking() {
                   
     return (
         <main>
-            <Suspense fallback={<div className='mx-auto my-10'><Skeleton variant='rectangular' width='80vw' height='20vh'/></div>}>
+            <Suspense fallback={<div className="bg-white w-[50%] mx-auto my-10 px-10 py-10 text-xl flex justify-center gap-y-4 border-2 border-gray-500 shadow-lg font-bold"><CircularProgress/></div>}>
                <UserInfo/> 
             </Suspense>
             

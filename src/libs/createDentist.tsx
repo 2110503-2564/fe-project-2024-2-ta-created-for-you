@@ -3,7 +3,7 @@
 import { authOptions } from "@/app/api/auth/[...nextauth]/authOptions";
 import { getServerSession } from "next-auth";
 import { revalidateTag } from "next/cache";
-import { redirect } from "next/navigation";
+import { redirect, RedirectType } from "next/navigation";
 
 export default async function createDentist(data: FormData) {
     const name = data.get('name');
@@ -33,6 +33,6 @@ export default async function createDentist(data: FormData) {
     }
 
     revalidateTag('dentists')
-    redirect('/dentists');
+    redirect('/dentists/new',RedirectType.replace);
 
 }

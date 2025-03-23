@@ -1,3 +1,5 @@
+import { revalidateTag } from "next/cache";
+
 export default async function getBookings(token: string) {
 
     // an error happens while using env. variables with client-side data fetching
@@ -6,7 +8,8 @@ export default async function getBookings(token: string) {
         headers: {
             authorization: `Bearer ${token}`
         },
-        next: {tags: ['bookings']}
+        next: {tags: ['bookings']},
+        cache: "no-cache"
     })
     if (!response.ok) {
         console.log(response.json())

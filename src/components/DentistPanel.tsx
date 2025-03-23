@@ -14,13 +14,12 @@ import getUserProfile from '@/libs/getUserProfile';
 export default function DentistPanel() {
 
     const [pageIndex, setPageIndex] = useState(1);
-    const [pageLimit, setLimit] = useState<number|null>(null);
 
     const {data:session} = useSession();
     const {data:dentists, isValidating, isLoading} = useSWR(`${pageIndex}`, getDentists);
     if (session) {var {data:user} = useSWR(session.user.token, getUserProfile)}
 
-    if (!dentists || isValidating || isLoading || !user) return (
+    if (!dentists || isValidating) return (
         <div className='my-20 mx-auto justify-center grid'>
         <CircularProgress/>    
         </div> 

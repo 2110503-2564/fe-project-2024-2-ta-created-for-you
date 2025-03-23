@@ -1,4 +1,5 @@
 import { authOptions } from "@/app/api/auth/[...nextauth]/authOptions"
+import { UpdateSubmitButton } from "@/components/BookingButton";
 import DateBooking from "@/components/DateReserve";
 import getBooking from "@/libs/getBooking";
 import updateBooking from "@/libs/updateBooking";
@@ -15,7 +16,7 @@ export default function bookingUpdatePage({params} : {params : {id: string}}) {
             text-gray-700 text-center text-4xl font-bold mx-auto my-[20px] shadow-md">
                 Update Booking
             </h1> 
-            <Suspense fallback={<CircularProgress/>}>
+            <Suspense fallback={<div className="flex justify-center align-center"><CircularProgress/></div>}>
             <UpdateBookingForm bookId={params.id}/>
             </Suspense>      
         </>
@@ -30,21 +31,31 @@ async function UpdateBookingForm({bookId}:{bookId:string}) {
 
     const date = new Date(booking.data.bookingDate);
 
-
-    return (
+    try {
+        return (
+        <>
         <div className='w-[40%] bg-white m-auto my-[50px] rounded-3xl border-gray-500 border-2 shadow-xl'>
             <form className='w-100vw py-10 grid justify-center mx-auto'
             action={updateBooking}>
                 <div> Current booking date: {date.toDateString()} </div>
                 <input hidden readOnly name='id' value={bookId}></input>
                 <DateBooking/>
-                <Button variant='contained' name='Book' type="submit">
-                    Update Booking
-                </Button>
+                <UpdateSubmitButton/>
                 <div className="text-[8px] text-gray-500/75 text-center my-2">
                 If you want to change dentist, delete this booking and create a new one.
                 </div>
             </form>
         </div> 
-    )
+        </>
+        )
+    } catch (err: any) {
+        return (
+                <>
+                <div className="m-auto border border-gray-500 shadow-lg px-4 py-2 text-xl">
+                    {err}
+                </div>
+                </>
+            )
+        }
+    
 }

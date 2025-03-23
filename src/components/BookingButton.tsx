@@ -7,6 +7,7 @@ import { redirect, useRouter } from "next/navigation";
 import { FormHTMLAttributes, useState } from "react";
 import DateBooking from "./DateReserve";
 import updateBooking from "@/libs/updateBooking";
+import { useFormStatus } from "react-dom";
 
 
 export function DeleteButton({booking}:{booking:Booking}) {
@@ -47,5 +48,13 @@ export function UpdateButton({booking}:{booking:Booking}) {
                 Update</Button>
         </>
         
+    )
+}
+
+export function UpdateSubmitButton() {
+    const {pending} = useFormStatus();
+
+    return (
+        <Button variant="contained" disabled={pending} type="submit">Update Booking</Button>
     )
 }
