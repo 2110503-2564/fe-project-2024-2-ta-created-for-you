@@ -9,7 +9,7 @@ export default function DeleteBookingPage({params}:{params:{id: string}}) {
     try {
         return (
         <>
-        <Suspense fallback={<LinearProgress/>}>
+        <Suspense fallback={<><LinearProgress/><div className="text-center">Deleting booking...</div></>}>
             <DeleteAction id={params.id}/>
         </Suspense>
         </>
@@ -29,6 +29,6 @@ export default function DeleteBookingPage({params}:{params:{id: string}}) {
 async function DeleteAction({id}:{id: string}) {
     await deleteBooking(id)
     return (
-        <><LinearProgress/></>    
+        <><div className="text-center my-auto">Deletion complete. Redirecting...</div></>    
     )
 }

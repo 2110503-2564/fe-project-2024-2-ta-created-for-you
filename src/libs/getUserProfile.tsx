@@ -3,7 +3,7 @@ export default async function getUserProfile(token: string) {
         method: "GET",
         headers: {
             authorization: `Bearer ${token}`
-        }
+        }, cache: "no-cache"
     })
     
     if (!response.ok) {

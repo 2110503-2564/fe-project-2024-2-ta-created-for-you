@@ -1,3 +1,5 @@
+
+
 import { authOptions } from "@/app/api/auth/[...nextauth]/authOptions";
 import getUserProfile from "@/libs/getUserProfile"
 import { getServerSession } from "next-auth";
@@ -17,7 +19,7 @@ export default async function UserInfo() {
             <div>Name <p className="font-normal text-sm">{profile.data.name}</p></div>
             <div>Email <p className="font-normal text-sm">{profile.data.email}</p></div>
             <div>Tel. <p className="font-normal text-sm">{profile.data.tel}</p></div>
-            <div>Member Since <p className="font-normal text-sm">{createdAt.toString()}</p></div>
+            <div>Member Since <p className="font-normal text-sm" suppressHydrationWarning>{createdAt.toString()}</p></div>
         </div>       
     )
 }

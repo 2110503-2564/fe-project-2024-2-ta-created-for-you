@@ -9,7 +9,7 @@ export default async function getBookings(token: string) {
             authorization: `Bearer ${token}`
         },
         next: {tags: ['bookings']},
-        cache: "no-cache"
+        cache: "reload"
     })
     if (!response.ok) {
         console.log(response.json())

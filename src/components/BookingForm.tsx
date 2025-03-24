@@ -11,9 +11,6 @@ import { authOptions } from "@/app/api/auth/[...nextauth]/authOptions";
 
 export default async function NewBookingForm({data}:{data:Dentist|null}) {
 
-    
-    
-
     if (data) {
         return (
             <div className='w-[40%] bg-white m-auto my-[50px] rounded-3xl border-gray-500 border-2 shadow-xl'>

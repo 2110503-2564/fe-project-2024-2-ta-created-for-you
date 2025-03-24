@@ -56,7 +56,7 @@ export default function DentistPanel() {
             <Button hidden={pageIndex <= 1} onClick={()=>{
                 setPageIndex(pageIndex - 1)
             }}>Previous</Button>
-            <Button  onClick={()=>{
+            <Button hidden={dentists.count < 25} onClick={()=>{
                 setPageIndex(pageIndex + 1)
             }}>Next</Button>   
         </div>

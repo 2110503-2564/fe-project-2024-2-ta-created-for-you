@@ -4,7 +4,8 @@ export default async function getBooking(token: string, id: string) {
         headers: {
             authorization: `Bearer ${token}`
         },
-        next: {tags: ['bookings']}
+        next: {tags: ['bookings']},
+        cache: "no-store"
     })
     if (!response.ok) {
         console.log(response.json())
