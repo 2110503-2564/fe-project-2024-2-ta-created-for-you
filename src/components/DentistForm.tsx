@@ -39,7 +39,7 @@ export function CreateDentistForm() {
 function SubmitButton() {
   const {pending} = useFormStatus();
   return (
-    <Button type="submit" disabled={pending}>Create Dentist</Button>
+    <Button type="submit" variant="contained" disabled={pending}>Create Dentist</Button>
   )
   
 }
