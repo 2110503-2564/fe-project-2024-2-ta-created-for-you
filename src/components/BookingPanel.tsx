@@ -3,9 +3,10 @@
 import getBookings from "@/libs/getBookings";
 import Bookings from "./Bookings";
 import { CircularProgress } from "@mui/material";
-import { redirect } from "next/navigation";
+import { redirect, RedirectType } from "next/navigation";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/authOptions";
+import getUserProfile from "@/libs/getUserProfile";
 
 
 export default async function BookingPanel() {
@@ -13,10 +14,11 @@ export default async function BookingPanel() {
     const session = await getServerSession(authOptions)
     
     if (!session || !session.user.token) return (
-        redirect('/')
+        redirect('/',RedirectType.replace)
     )
 
-    const res = await getBookings(session.user.token);
+    const [res, user] = await Promise.all([getBookings(session.user.token), getUserProfile(session.user.token)]);
+    const isAdmin = user.data.role === 'admin';
 
     if (res.count == 0) return (
         <div className='w-2/5 mx-auto my-10 border-gray-500 border-2 shadow-lg px-10 py-5 grid justify-center'>
@@ -31,7 +33,7 @@ export default async function BookingPanel() {
         <div className='w-2/5 mx-auto my-10 border-gray-500 border-2 shadow-lg px-10 py-5'>
             {
             res.data.map((booking)=>(
-                <Bookings booking={booking} key={booking._id}/>
+                <Bookings booking={booking} key={booking._id} admin={isAdmin}/>
             ))    
             }
         </div>   

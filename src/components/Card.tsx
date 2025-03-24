@@ -13,6 +13,7 @@ export default function DentistCard( {dentist, user} : {dentist:Dentist, user?: 
                             <div className="px-5 py-2">
                             <div>Experience: {dentist.experience} years</div>
                             <div>Expertise: {dentist.expertise}</div>
+                            {user?.data.role === 'admin' && <div>ID: {dentist._id}</div>}
                         </div>
                 </CardContent>
                 <CardActions>

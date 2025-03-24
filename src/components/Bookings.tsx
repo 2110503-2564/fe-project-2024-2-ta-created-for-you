@@ -2,7 +2,7 @@
 
 import { DeleteButton, UpdateButton } from "./BookingButton";
 
-export default function Bookings({booking}:{booking: Booking}) {
+export default function Bookings({booking, admin}:{booking: Booking, admin:Boolean}) {
 
     const bookDate = new Date(booking.bookingDate);
 
@@ -11,6 +11,7 @@ export default function Bookings({booking}:{booking: Booking}) {
             <div>
                 <div>Dentist: {booking.dentist.name}</div>
                 <div suppressHydrationWarning={true}>Date: {bookDate.toDateString()}</div>
+                {admin && <div>ID: {booking._id}</div>}
             </div>
     
             <div className="h-[50%] w-[80%] justify-self-end grid grid-cols-2 gap-3">
