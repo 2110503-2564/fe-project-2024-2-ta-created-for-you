@@ -2,11 +2,10 @@
 
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/authOptions";
-import { redirect } from "next/navigation";
+import { redirect, RedirectType } from "next/navigation";
 
 export default async function addBooking(data: FormData) {
-    try {
-       const session = await getServerSession(authOptions)
+    const session = await getServerSession(authOptions)
     const dentist = data.get('id')?.toString();
     const date = data.get('bookingDate')?.toString();
     if (!session || !session.user.token) {
@@ -28,12 +27,7 @@ export default async function addBooking(data: FormData) {
         throw new Error(`Unable to create booking`)
     }
 
-    redirect('/booking'); 
-    }
+    redirect('/booking',RedirectType.push); 
     
-
-    catch (err:any) {
-        console.log(err);
-    }
   
 }
