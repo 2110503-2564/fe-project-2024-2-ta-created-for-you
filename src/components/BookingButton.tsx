@@ -54,3 +54,11 @@ export function UpdateSubmitButton() {
         <Button variant="contained" disabled={pending} type="submit" suppressHydrationWarning>Update Booking</Button>
     )
 }
+
+export function CreateSubmitButton() {
+    const {pending} = useFormStatus();
+
+    return (
+        <Button variant="contained" disabled={pending} type="submit" suppressHydrationWarning>Create Booking</Button>
+    )
+}

@@ -8,6 +8,7 @@ import dayjs, { Dayjs } from "dayjs";
 import DateBooking from "./DateReserve";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/authOptions";
+import { CreateSubmitButton } from "./BookingButton";
 
 export default async function NewBookingForm({data}:{data:Dentist|null}) {
 
@@ -19,11 +20,7 @@ export default async function NewBookingForm({data}:{data:Dentist|null}) {
                     <div> Dentist: {data.name} </div>
                     <input hidden readOnly name='id' value={data._id}></input>
                     <DateBooking/>
-                    <button className='bg-blue-500 text-white rounded-lg w-fit m-auto px-[10px] py-[5px]
-                    transition duration-200 ease-in-out
-                    hover:bg-blue-700' name='Book'>
-                        Create Booking
-                    </button>
+                    <CreateSubmitButton/>
                 </form>
             </div> 
         )
