@@ -42,3 +42,13 @@ interface Dentist {
     createdAt: string,
     __v: number
   }
+
+  interface Logs {
+    _id: string,
+    objectId: string,
+    date: string,
+    type: string,
+    action: string,
+    before: Dentist|Booking|undefined,
+    after: Dentist|Booking|undefined
+  }
