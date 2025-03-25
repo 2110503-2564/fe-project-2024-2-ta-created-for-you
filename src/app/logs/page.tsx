@@ -14,7 +14,7 @@ export default async function LogsPage() {
 
     return (
         <>
-        <h1 className="dark:bg-gray-900 py-[15px] w-fit px-[25px] rounded-2xl border-2 border-gray-500 
+        <h1 className="bg-white text-black py-[15px] w-fit px-[25px] rounded-2xl border-2 border-gray-500 
              text-center text-4xl font-bold mx-auto my-[20px] shadow-md">
                 Audit Logs
         </h1>
@@ -30,7 +30,7 @@ async function LogsPanel({session}:{session:Session}) {
     const logs = await getLogs(session.user.token)
     if (logs.count === 0) {return (
         <>
-        <div className="w-[60%] mx-auto my-5 px-5 py-5 border border-gray-500 shadow-md rounded text-center">
+        <div className="text-black w-[60%] mx-auto my-5 px-5 py-5 border border-gray-500 shadow-md rounded text-center">
             No logs found
         </div>
         </>

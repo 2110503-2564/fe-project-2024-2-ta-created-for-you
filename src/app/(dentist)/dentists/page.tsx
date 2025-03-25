@@ -10,7 +10,7 @@ export default async function Dentists() {
 
     return (
         <main>
-            <div className='dark:bg-gray-800 text-4xl border-2 border-gray-500 rounded-lg text-center w-fit mx-auto my-[20px] px-5 py-2 shadow-md'>
+            <div className='bg-white text-black text-4xl border-2 border-gray-500 rounded-lg text-center w-fit mx-auto my-[20px] px-5 py-2 shadow-md'>
                 <h1>Available Dentists</h1>
                 <p className='text-sm'>Select a dentist to create a booking</p>
             </div>

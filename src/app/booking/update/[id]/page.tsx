@@ -12,7 +12,7 @@ export default function bookingUpdatePage({params} : {params : {id: string}}) {
 
     return (
         <> 
-            <h1 className="dark:bg-gray-900 py-[15px] w-fit px-[25px] rounded-2xl border-2 border-gray-500 
+            <h1 className="text-black bg-white py-[15px] w-fit px-[25px] rounded-2xl border-2 border-gray-500 
              text-center text-4xl font-bold mx-auto my-[20px] shadow-md">
                 Update Booking
             </h1> 
