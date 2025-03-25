@@ -26,7 +26,7 @@ export default async function TopMenu() {
             <TopMenuItem title='Dentist' pageRef='/dentists'/>
             <TopMenuItem title='Booking' pageRef='/booking'/>
             {user.data.role === 'admin' && <TopMenuItem title='Logs' pageRef='/logs'/>}
-            <Link href="/api/auth/signin">
+            <Link href="/api/auth/signout">
                 <div className='flex items-center absolute left-0 h-full px-5 text-sm'>Sign Out</div>
             </Link>
         </div>
