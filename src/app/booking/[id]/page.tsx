@@ -31,8 +31,8 @@ export default async function DentistBooking({params} : {params : {id: string}})
     try {
         return (
         <main> 
-            <h1 className="bg-white py-[15px] w-fit px-[25px] rounded-2xl border-2 border-gray-500 
-            text-gray-700 text-center text-4xl font-bold mx-auto my-[20px] shadow-md">
+            <h1 className="dark:bg-gray-900 py-[15px] w-fit px-[25px] rounded-2xl border-2 border-gray-500 
+             text-center text-4xl font-bold mx-auto my-[20px] shadow-md">
                 Book Dentist
             </h1> 
             <NewBookingForm data={dentist.data}/>      
@@ -41,8 +41,8 @@ export default async function DentistBooking({params} : {params : {id: string}})
     } catch (err:any) {
         return (
             <main> 
-                <h1 className="bg-white py-[15px] w-fit px-[25px] rounded-2xl border-2 border-gray-500 
-                text-gray-700 text-center text-4xl font-bold mx-auto my-[20px] shadow-md">
+                <h1 className="dark:bg-gray-900 py-[15px] w-fit px-[25px] rounded-2xl border-2 border-gray-500 
+                 text-center text-4xl font-bold mx-auto my-[20px] shadow-md">
                     Book Dentist
                 </h1> 
                 <p className="bg-white py-[15px] w-fit px-[25px] rounded-2xl border-2 border-gray-500 

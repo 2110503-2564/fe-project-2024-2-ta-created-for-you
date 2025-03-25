@@ -8,7 +8,7 @@ export default function Bookings({booking, admin}:{booking: Booking, admin:Boole
 
     return (
         <div className="bg-gray-100 w-full px-4 py-2 my-2 grid grid-cols-2 justify-items-start items-center rounded">
-            <div>
+            <div className="text-black">
                 <div>Dentist: {booking.dentist.name}</div>
                 <div suppressHydrationWarning={true}>Date: {bookDate.toDateString()}</div>
                 {admin && <><div className="text-[12px]">ID: {booking._id}</div>

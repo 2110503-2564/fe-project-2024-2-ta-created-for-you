@@ -11,9 +11,9 @@ export default function Banner() {
     const [index, setIndex] = useState(0);
     const router = useRouter();
     const {data:session} = useSession();
-    console.log(session?.user);
 
     return (
+        <>
         <div className={styles.banner} onClick={()=>setIndex(index+1)}>
             <Image src={covers[index%4]}
             alt='cover'
@@ -21,14 +21,22 @@ export default function Banner() {
             priority
             objectFit='cover'/>
             <div className={styles.bannerText}>
-                <h1 className='text-4xl font-medium'>where every event finds its venue</h1>
-                <h3 className='text-xl font-medium'>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</h3>
-            </div>
-            <button className='z-30 absolute bottom-2 right-3
-            bg-white border border-black rounded-lg m-2 px-2 py-2'
-            onClick={(e)=>{e.stopPropagation(); router.push('/venue')}}>
-                Select Venue
+                <h1 className='text-4xl font-medium'>Dentist Booking</h1>
+                <h3 className='text-'>Fixing your smiles, from anywhere, at any time.</h3>
+                <br/>
+                <button className='z-30 
+            bg-white border border-black rounded-lg m-2 px-2 py-2 text-sm text-black'
+            onClick={(e)=>{e.stopPropagation(); router.push('/dentists')}}>
+                View Dentists
             </button>
+            {session && <button className='z-30 
+            bg-white border border-black rounded-lg m-2 px-2 py-2 text-sm text-black'
+            onClick={(e)=>{e.stopPropagation(); router.push('/booking')}}>
+                View Bookings
+            </button>}
+            </div>
+            
         </div>
+        </>
     );
 }

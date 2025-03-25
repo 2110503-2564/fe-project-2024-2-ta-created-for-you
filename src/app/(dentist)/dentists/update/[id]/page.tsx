@@ -12,8 +12,8 @@ export default function DentistUpdatePage({params} : {params : {id: string}}) {
 
     return (
         <> 
-            <h1 className="bg-white py-[15px] w-fit px-[25px] rounded-2xl border-2 border-gray-500 
-            text-gray-700 text-center text-4xl font-bold mx-auto my-[20px] shadow-md">
+            <h1 className="dark:bg-gray-900 py-[15px] w-fit px-[25px] rounded-2xl border-2 border-gray-500 
+             text-center text-4xl font-bold mx-auto my-[20px] shadow-md">
                 Update Dentist
             </h1> 
             <Suspense fallback={<CircularProgress/>}>
@@ -41,7 +41,7 @@ async function UpdateDentistForm({id}:{id:string}) {
                 </CardContent>
             </Card>
             
-              <form className="m-auto py-10 grid gap-y-3" action={updateDentist}>
+              <form className="m-auto py-8 grid gap-y-3" action={updateDentist}>
                 <input hidden readOnly name="id" value={id}></input>
                 <TextField name="name" required label="Dentist name" defaultValue={dentist.name}></TextField>
                 <TextField name="experience" type="number" required label="Experience" aria-valuemin={0} defaultValue={dentist.experience}></TextField>
